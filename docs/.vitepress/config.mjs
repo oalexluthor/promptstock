@@ -29,6 +29,7 @@ function getDynamicSidebar() {
     // teste de duplicação da sidebar
         sidebar.push({
       text: cat.replace(/_/g, ' ').toUpperCase(), // Ex: CODE REVIEWER
+      collapsed: true,
       items: files.map(file => ({
         text: file.replace('.md', '').replace(/-/g, ' ').toUpperCase(),
         link: `/${cat}/${file.replace('.md', '')}` // Link exato para o arquivo
