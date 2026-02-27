@@ -3,23 +3,15 @@
 layout: home
 
 hero:
-  name: "Promptzilla"
+  name: "PromptStock"
   text: "Promp like a man. Make a huge mess like Godzilla!"
-  tagline: My great project tagline
+  tagline: Categorias de prompt
   actions:
     - theme: brand
-      text: Markdown Examples
-      link: /markdown-examples
+      text: Developer
+      link: /developer/code_reviewer/agent-code-reviewer
     - theme: alt
-      text: API Examples
-      link: /api-examples
-
-features:
-  - title: Feature A
-    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
-  - title: Feature B
-    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
-  - title: Feature C
-    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
+      text: Projetos
+      link: /projetos/dayli_meeting/resumidor-daily-scrum
 ---
 

@@ -144,14 +144,14 @@ function getMultiSidebar() {
 }
 
 export default defineConfig({
-  title: "Promptzilla",
+  title: "PromptStock",
   description: "Promp like a man. Make a huge mess like Godzilla!",
   themeConfig: {
     nav: [
       { text: 'Home', link: '/' },
       // Remova o .html dos links internos, o VitePress cuida disso
-      { text: 'Dev', link: '/developer/code_reviewer/agent-code-reviewer' },
-      { text: 'Projetos', link: '/projetos/dayli_meeting/resumidor-daily-scrum.html' }
+      { text: 'Developer', link: '/developer/code_reviewer/agent-code-reviewer' },
+      { text: 'Projetos', link: '/projetos/dayli_meeting/resumidor-daily-scrum' }
     ],
 
     sidebar: getMultiSidebar(),
