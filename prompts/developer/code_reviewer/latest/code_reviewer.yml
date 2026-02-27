@@ -1,6 +1,6 @@
 _type: prompt
 id: agent-code-reviewer
-target: code_reviewer/
+target: developer/code_reviewer/
 version: 1.0.0
 input_variables:
   - code_diff
