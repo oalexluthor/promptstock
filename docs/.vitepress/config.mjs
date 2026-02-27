@@ -120,6 +120,7 @@ function getMultiSidebar() {
         sidebar[`/${team}/`] = [
           {
             text: team.replace(/_/g, ' ').toUpperCase(),
+            collapsed: true,
             items: allFiles.map(filePath => {
               // Calculamos o caminho relativo à pasta da equipe para gerar o link correto
               const relativePath = path.relative(teamPath, filePath)
@@ -150,7 +151,7 @@ export default defineConfig({
       { text: 'Home', link: '/' },
       // Remova o .html dos links internos, o VitePress cuida disso
       { text: 'Dev', link: '/developer/code_reviewer/agent-code-reviewer' },
-      { text: 'Projetos', link: '/projetos/' }
+      { text: 'Projetos', link: '/projetos/dayli_meeting/resumidor-daily-scrum.html' }
     ],
 
     sidebar: getMultiSidebar(),

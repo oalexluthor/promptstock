@@ -1,30 +1,27 @@
-# Agent Code Reviewer
+# Resumidor de Daily Scrum
 
-Agente especializado em revisão rigorosa de código com foco em segurança, performance e boas práticas de desenvolvimento.
+Agente focado em transformar transcrições brutas de reuniões em relatórios estruturados seguindo a metodologia ágil.
 
 ## Uso
 
-Este prompt é utilizado para análise automatizada de código em pull requests e revisões de código, fornecendo feedback detalhado sobre múltiplos aspectos do código.
+Ideal para converter áudios transcritos ou notas rápidas de reuniões diárias em um formato de fácil leitura para stakeholders, gestores e para o histórico do projeto.
 
 ## Variáveis de Entrada
 
-- `code_diff` (obrigatório): Diff do código a ser revisado
-- `language` (opcional): Linguagem de programação do código
-- `repo_rules` (opcional): Regras específicas do repositório
-- `security_level` (opcional): Nível de rigor na análise de segurança (standard/high)
-- `review_focus` (opcional): Foco específico da revisão (geral/segurança/performance)
+- `data` (obrigatório): A data em que a reunião ocorreu (ajuda na organização do histórico).
+- `transcricao` (obrigatório): O texto bruto da conversa ou notas coletadas durante a daily.
 
 ## Onde é Utilizado
 
-- Pipeline de CI/CD para revisão automática de PRs
-- Integração com GitHub Actions
-- Ferramenta de linha de comando para desenvolvedores
-- Sistema de code review interno
+- Canais de comunicação da equipe (Slack, Discord, Teams) para registro do dia.
+- Documentação de projeto no Notion, Confluence ou Jira.
+- Envio de status report para gerência via e-mail.
+- Histórico de evolução para facilitar o planejamento de Sprints futuras.
 
 ## Changelog
 
-### v1.0.0 (2026-10-18)
-- Implementação inicial do agente
-- Suporte para análise de segurança, performance e qualidade
-- Casos de teste básicos implementados
-- Formato estruturado de resposta definido
+### v1.0.0 (2026-02-27)
+- Implementação inicial da estrutura Scrum (Fez/Vai Fazer/Impedimentos).
+- Lógica de separação automática por membro da equipe.
+- Inclusão de resumo executivo conciso para leitura rápida.
+- Formatação de saída otimizada para Markdown.
