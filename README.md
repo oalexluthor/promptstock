@@ -1,8 +1,8 @@
-# 🚀 O que é o PromptStock?
+# 1 - O que é o PromptStock?
 
 O PromptStock funciona como um **Static Site Generator (SSG)** especializado em IA. Ele atua como uma ponte entre os especialistas em domínios (que escrevem as lógicas no formato YAML) e os usuários finais (que precisam de uma interface amigável para preencher variáveis e obter resultados imediatos).
 
-## 💡 Proposta de Valor
+## Proposta de Valor
 
 Por que não usar apenas um bloco de notas ou arquivos `.md` comuns?
 
@@ -13,13 +13,79 @@ Por que não usar apenas um bloco de notas ou arquivos `.md` comuns?
 
 ---
 
-## 🛠️ Stack Tecnológica
+## Stack Tecnológica
 
 O projeto foi construído sobre o que há de mais moderno em automação e web estática:
 
 * **Python (v3.x):** O motor de build. Responsável por ler os arquivos YAML, sanitizar os dados e gerar os arquivos Markdown compatíveis com o VitePress.
 * **VitePress:** O framework de documentação de alto desempenho (movido por Vite e Vue) que garante uma navegação instantânea e SEO otimizado.
 * **Vue.js 3:** Responsável pela reatividade do componente de interface, garantindo que o processamento das variáveis ocorra inteiramente no lado do cliente (client-side).
+
+---
+
+
+## 🚀 Instalação e Setup Inicial
+
+Siga este guia para configurar o seu ambiente de desenvolvimento do zero e colocar o Godzilla para rugir no seu navegador.
+
+### 1. Clonagem do Repositório
+
+Comece trazendo o projeto para a sua máquina local:
+
+```bash
+git clone https://github.com/seu-usuario/PromptStock.git
+cd PromptStock
+
+```
+
+### 2. Instalação de Dependências
+
+O PromptStock é um projeto híbrido, portanto, você precisará instalar as dependências de dois ecossistemas:
+
+**Ambiente Node.js (Interface Visual):**
+Certifique-se de ter o Node.js (LTS) instalado.
+
+```bash
+npm install
+
+```
+
+**Ambiente Python (Motor de Automação):**
+Recomenda-se o uso de um ambiente virtual (*venv*).
+
+```bash
+# Opcional: Criar e ativar venv
+python -m venv venv
+source venv/bin/activate  # No Windows: venv\Scripts\activate
+
+# Instalar dependências do Python
+pip install -r requirements.txt
+
+```
+
+*(Caso não tenha o arquivo requirements.txt, o único pacote essencial no momento é o `PyYAML`)*.
+
+### 3. O Ritual de Passagem (Primeiro Build)
+
+Para que o VitePress tenha conteúdo para exibir, você deve primeiro converter os prompts brutos em páginas Markdown. Siga esta ordem obrigatória:
+
+**Passo A: Rodar o Python**
+Este comando varre a pasta `prompts/` e popula a pasta `docs/`.
+
+```bash
+python build_prompts.py
+
+```
+
+**Passo B: Iniciar o VitePress**
+Agora que os arquivos `.md` existem, você pode subir o servidor de desenvolvimento.
+
+```bash
+npm run dev
+
+```
+
+Após esses comandos, abra o seu navegador em `http://localhost:5173`. Você verá o **PromptStock** online, com a sidebar já organizada pelas equipes definidas nas suas pastas.
 
 ---
 
@@ -36,6 +102,7 @@ Este é o único lugar onde os usuários e engenheiros de prompt devem trabalhar
 * **Nível 2: O Prompt:** Cada prompt possui sua própria pasta. Dentro dela, a estrutura é rígida para garantir o build:
 * `README.md`: Contém a documentação técnica do prompt (Uso, Variáveis, Changelog).
 * `latest/`: Pasta que contém o arquivo `.yml` (ou `.yaml`) com o template e as variáveis reais. O script de build sempre buscará o primeiro arquivo YAML dentro desta pasta.
+* `vx-x-x/`: Pastas de versões anteriores do prompt no formato SEM Version, com arquivo `.yml`.
 
 
 
@@ -43,18 +110,7 @@ Este é o único lugar onde os usuários e engenheiros de prompt devem trabalhar
 
 Esta pasta é a "fábrica" do VitePress. **Nunca edite arquivos diretamente aqui.**
 
-* Todo o conteúdo de `docs/` (exceto a pasta `.vitepress`) é deletado ou sobrescrito sempre que o script `build_prompts.py` é executado.
-* O script transforma a estrutura complexa de `prompts/` em arquivos `.md` planos e otimizados que o VitePress consegue renderizar como páginas web.
-
-## 🧠 Diretório `.vitepress/`
-
-Localizado dentro de `docs/`, aqui reside a inteligência visual do projeto:
-
-* `config.mjs`: Contém a lógica de **Multi-Sidebar Dinâmica**, que lê as pastas de `docs/` e monta os menus automaticamente.
-* `theme/`: Onde o tema customizado é definido.
-* `index.js`: Registra os componentes Vue globalmente.
-* `components/PromptRunner.vue`: O motor gráfico que renderiza os formulários e processa as variáveis do seu prompt.
-
+* Todo o conteúdo de `docs/` (exceto a pasta `.vitepress`) é deletado ou sobrescrito sempre que o script `build_prompts.py` é executado. O script transforma a estrutura completa de `prompts/` em arquivos `.md` planos e otimizados que o VitePress consegue renderizar como páginas web.
 
 ---
 
@@ -67,7 +123,7 @@ PromptStock/
 │       └── code-reviewer/  # Pasta do Prompt
 │           ├── README.md   # Descrição humana
 │           └── latest/
-│               └── v1.yml  # Template e Variáveis
+│               └── code-reviewer.yml  # Template e Variáveis
 ├── docs/                   # ⚠️ NÃO MEXA AQUI (Auto-gerado)
 │   ├── .vitepress/         # Configurações do site
 │   └── developer/
@@ -82,54 +138,53 @@ PromptStock/
 
 # 🛠️ 3. Fluxo de Trabalho Manual (Guia do Usuário)
 
-Adicionar um novo prompt ao **PromptStock** segue um processo padronizado de três etapas. Siga este guia para garantir que a automação reconheça seu trabalho.
+Adicionar um novo prompt ao **PromptStock** segue um processo padronizado de três etapas.
 
-## 🆕 Criando um Novo Prompt: Passo a Passo
+## 1 - Criando um Novo Prompt: Passo a Passo
 
 1. **Identifique a Equipe:** Vá até a pasta `prompts/` e escolha a pasta da equipe correspondente (ex: `marketing/`). Se a equipe não existir, crie a pasta.
 2. **Crie a Pasta do Prompt:** Dentro da pasta da equipe, crie uma subpasta com o nome do seu prompt em formato *kebab-case* (ex: `gerador-de-emails`).
 3. **Prepare a Estrutura:** Dentro da pasta do seu prompt, você precisará obrigatoriamente de:
 * Um arquivo `README.md`.
 * Uma pasta chamada `latest/`.
-* Um arquivo `.yml` dentro da pasta `latest/`.
+* Um arquivo `.yml` dentro da pasta `latest/` com o mesmo nome do prompt.
 
 
 
 ---
 
-## 📄 O Arquivo YAML: O Cérebro do Prompt
+## 2 - O Arquivo YAML do prompt
 
-O arquivo YAML dentro da pasta `latest/` define como o componente Vue será construído. Aqui está o detalhamento dos campos:
+Aqui está o detalhamento dos campos do arquivo YAML dentro da pasta `latest/`.
 
 | Campo | Descrição | Exemplo |
 | --- | --- | --- |
 | `_type` | Identificador de tipo para o script Python. | `prompt` |
 | `id` | Identificador único (usado no nome do arquivo final). | `analise-de-seo` |
-| `target` | Caminho relativo dentro de `docs/` onde o arquivo será salvo. | `marketing/seo/` |
+| `target` | Caminho relativo dentro de `docs/` onde o arquivo será salvo. Deve ser o mesmo caminho que a na pasta prompts. | `marketing/seo/` |
 | `version` | Controle de versão semântica do prompt. | `1.0.2` |
 | `input_variables` | Lista de variáveis que se tornarão campos de texto na UI. | `['texto_base', 'palavra_chave']` |
 | `template` | O texto do prompt com as variáveis entre chaves `{}`. | `Analise o texto {texto_base}...` |
 
 > **Atenção:** No campo `template`, use o caractere `|` (pipe) para blocos de texto multilinha, mantendo a formatação original do prompt.
+> **Dica:** Na raiz desse projeto, existe um arquivo de template para prompts chamado `prompt_exemplo.yml`. Você pode copiá-lo e usá-lo como base.
 
 ---
 
-## 📝 O Arquivo README: Documentação Humana
+## 3 - O Arquivo README: Documentação Humana
 
 Enquanto o YAML fala com a máquina, o `README.md` fala com o usuário. Ele deve conter:
 
 * **Título:** Nome amigável do prompt.
 * **Contexto:** Para que serve e qual problema ele resolve.
-* **Guia de Variáveis:** Explicação do que deve ser inserido em cada campo (ex: "No campo `diff`, cole o código extraído do Git").
+* **Guia de Variáveis:** Explicação do que deve ser inserido em cada campo.
 * **Changelog:** O que mudou nas últimas versões.
 
 *O conteúdo deste arquivo será injetado no topo da página gerada pelo VitePress.*
 
 ---
 
-## 📏 Convenções de Nomenclatura
-
-Para manter o sistema organizado e evitar erros de URL no servidor, seguimos estas regras estritas:
+## Convenções de Nomenclatura
 
 1. **Kebab-Case:** Todos os nomes de pastas e IDs devem ser em letras minúsculas separadas por hífen.
 * ✅ `revisor-de-codigo`
@@ -161,12 +216,8 @@ O script executa um pipeline de processamento em cinco etapas:
 
 1. **Mapeamento de Território:** O script varre a pasta `prompts/`, identifica as pastas de equipes e localiza os arquivos `README.md` e os arquivos YAML dentro de `latest/`.
 2. **Leitura de Metadados:** Ele extrai as variáveis, o ID e o template do prompt definidos no YAML.
-3. **Sanitização de Dados (Segurança):** * **JSON Dump:** O template e as variáveis são convertidos para formato JSON para garantir que quebras de linha não quebrem o código.
-* **HTML Escape:** O script converte caracteres especiais (como aspas e símbolos de `<>`) em entidades HTML (ex: `&quot;`). Isso evita o erro de *Unterminated string constant* no Vue.js, permitindo que prompts contenham qualquer tipo de caractere especial com segurança.
-
-
-4. **Injeção de Componente:** Ele combina o conteúdo do `README.md` com a tag do componente `<PromptRunner />`, passando os dados sanitizados como propriedades (*props*).
-5. **Geração do Markdown:** Cria o arquivo `.md` final no diretório de destino especificado pelo campo `target` do YAML.
+3. **Injeção de Componente:** Ele combina o conteúdo do `README.md` com a tag do componente `<PromptRunner />`, passando os dados sanitizados como propriedades (*props*).
+4. **Geração do Markdown:** Cria o arquivo `.md` final no diretório de destino especificado pelo campo `target` do YAML.
 
 ## 🚀 Como executar o Build
 
@@ -187,76 +238,12 @@ python build_prompts.py
 ---
 
 
-# 🚀 5. Instalação e Setup Inicial
 
-Siga este guia para configurar o seu ambiente de desenvolvimento do zero e colocar o Godzilla para rugir no seu navegador.
-
-## 1. Clonagem do Repositório
-
-Comece trazendo o projeto para a sua máquina local:
-
-```bash
-git clone https://github.com/seu-usuario/PromptStock.git
-cd PromptStock
-
-```
-
-## 2. Instalação de Dependências
-
-O PromptStock é um projeto híbrido, portanto, você precisará instalar as dependências de dois ecossistemas:
-
-**Ambiente Node.js (Interface Visual):**
-Certifique-se de ter o Node.js (LTS) instalado.
-
-```bash
-npm install
-
-```
-
-**Ambiente Python (Motor de Automação):**
-Recomenda-se o uso de um ambiente virtual (*venv*).
-
-```bash
-# Opcional: Criar e ativar venv
-python -m venv venv
-source venv/bin/activate  # No Windows: venv\Scripts\activate
-
-# Instalar dependências do Python
-pip install -r requirements.txt
-
-```
-
-*(Caso não tenha o arquivo requirements.txt, o único pacote essencial no momento é o `PyYAML`)*.
-
-## 3. O Ritual de Passagem (Primeiro Build)
-
-Para que o VitePress tenha conteúdo para exibir, você deve primeiro converter os prompts brutos em páginas Markdown. Siga esta ordem obrigatória:
-
-**Passo A: Rodar o Python**
-Este comando varre a pasta `prompts/` e popula a pasta `docs/`.
-
-```bash
-python build_prompts.py
-
-```
-
-**Passo B: Iniciar o VitePress**
-Agora que os arquivos `.md` existem, você pode subir o servidor de desenvolvimento.
-
-```bash
-npm run dev
-
-```
-
-Após esses comandos, abra o seu navegador em `http://localhost:5173`. Você verá o **PromptStock** online, com a sidebar já organizada pelas equipes definidas nas suas pastas.
-
----
-
-### 🧹 7. Manutenção e Boas Práticas
+# 🧹 5. Manutenção e Boas Práticas
 
 Para manter o **PromptStock** organizado, seguro e eficiente à medida que o volume de prompts cresce, siga estas diretrizes de manutenção.
 
-#### 🔄 Versionamento de Prompts
+### Versionamento de Prompts
 
 O sistema foi desenhado para que o site sempre exiba a versão mais estável e recente, mas sem perder o histórico.
 
@@ -264,21 +251,21 @@ O sistema foi desenhado para que o site sempre exiba a versão mais estável e r
 * **Arquivamento:** Quando criar uma nova versão do prompt, mova o YAML antigo para uma pasta de histórico (ex: `v1/`, `v2/`) ao lado da `latest/`.
 * **Por que fazer isso?** Isso permite que você rastreie a evolução da lógica do prompt via Git, enquanto garante que a interface do usuário no site permaneça simples e sempre atualizada com a melhor versão disponível.
 
-#### 🔐 Segurança e Dados Sensíveis
+### Segurança e Dados Sensíveis
 
 Prompts são poderosos, mas podem ser perigosos se expuserem segredos.
 
 * **Zero Segredos:** Nunca coloque chaves de API, senhas ou URLs privadas diretamente no campo `template` do YAML.
 * **Placeholders:** Se um prompt precisar de uma chave de acesso, crie uma variável de entrada (ex: `api_key`) para que o usuário a preencha manualmente na interface do site. Isso garante que nenhum dado sensível seja "assado" nos arquivos estáticos do site.
 
-#### 🧼 Limpeza de Arquivos Órfãos
+### Limpeza de Arquivos Órfãos
 
 O script de build cria arquivos, mas ele não apaga arquivos que não existem mais na origem por padrão.
 
 * **Sincronização:** Se você deletar uma pasta de prompt em `prompts/`, o arquivo correspondente em `docs/` continuará existindo.
 * **Recomendação:** Periodicamente, apague todo o conteúdo de `docs/` (exceto a pasta `.vitepress`) e rode o `python build_prompts.py`. Isso garante que o site reflita exatamente o que está na sua pasta de origem, sem "lixo" de prompts antigos ou renomeados.
 
-#### 🧪 Testes Antes do Build
+### Testes Antes do Build
 
 Antes de converter um YAML para o site:
 
