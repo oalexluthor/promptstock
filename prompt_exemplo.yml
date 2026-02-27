@@ -1,0 +1,15 @@
+# ARQUIVO DE EXEMPLO - COPIE E PREENCHA
+_type: prompt
+id: nome-unico-do-prompt
+target: categoria/nome-da-pagina # Onde aparecerá no site (ex: sac/cancelamentos)
+version: 1.0.0
+input_variables:
+  - variavel_1
+  - variavel_2
+template: |
+  Instrução do sistema aqui.
+  
+  Aqui uso a {variavel_1} que o usuário digitou.
+  
+  ## Contexto Final
+  {variavel_2}

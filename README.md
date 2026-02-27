@@ -1,0 +1,1 @@
+1 - Ao criar uma nova versão do prompt, sempre copie a pasta latest, e renomeie a versão antiga de acordo com o sermversion
