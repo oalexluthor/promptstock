@@ -1,3 +1,7 @@
+<img src="./docs/public/logo_promptstock2.png" style="width:50%; height:auto; margin:0 auto;"/>
+
+Autor: Alex Araujo de Paula (@oalexluthor) - 27/02/2026 
+
 # 1 - O que é o PromptStock?
 
 O PromptStock funciona como um **Static Site Generator (SSG)** especializado em IA. Ele atua como uma ponte entre os especialistas em domínios (que escrevem as lógicas no formato YAML) e os usuários finais (que precisam de uma interface amigável para preencher variáveis e obter resultados imediatos).

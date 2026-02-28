@@ -4,8 +4,8 @@ layout: home
 
 hero:
   name: "PromptStock"
-  text: "Promp like a man. Make a huge mess like Godzilla!"
-  tagline: Categorias de prompt
+  text: "\nPrompt like an engineer. \nOrganize like a master!"
+  tagline: "\nPrompt categories"
   actions:
     - theme: brand
       text: Developer
@@ -15,3 +15,4 @@ hero:
       link: /projetos/dayli_meeting/resumidor-daily-scrum
 ---
 
+![image](public/Logo%20PromptStock.png)
