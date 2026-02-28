@@ -32,6 +32,31 @@ The project was built on the latest in automation and static web design:
 
 ---
 
+
+---
+## Screenshots
+
+#### Home Page with prompt categories
+<img src="./docs/public/promptstock_home.png" style="width:80%; height:auto; margin:0 auto;"/>
+
+
+#### Prompt page overview
+
+Full documentation of the prompt
+<img src="./docs/public/promptstock_page_1.png" style="width:80%; height:auto; margin:0 auto;"/>
+
+
+#### Prompt generator
+Input values on the form fields an copy the whole prompt, ready for action. 
+<img src="./docs/public/promptstock_generator1.png" style="width:80%; height:auto; margin:0 auto;"/>
+
+<img src="./docs/public/promptstock_generator2.png" style="width:80%; height:auto; margin:0 auto;"/>
+
+---
+
+
+
+
 ## 🚀 Installation and Initial Setup
 
 Follow this guide to set up your development environment from scratch and unleash Godzilla in your browser.

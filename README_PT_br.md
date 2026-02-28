@@ -28,6 +28,27 @@ O projeto foi construído sobre o que há de mais moderno em automação e web e
 ---
 
 
+---
+## Screenshots
+
+#### Página principal com categorias de prompts
+<img src="./docs/public/promptstock_home.png" style="width:80%; height:auto; margin:0 auto;"/>
+
+
+#### Página do prompt
+
+<img src="./docs/public/promptstock_page_1.png" style="width:80%; height:auto; margin:0 auto;"/>
+
+
+#### Gerador de prompt
+Insira os valores nos campos de formulário e copie o prompt já pronto para usar!
+<img src="./docs/public/promptstock_generator1.png" style="width:80%; height:auto; margin:0 auto;"/>
+
+<img src="./docs/public/promptstock_generator2.png" style="width:80%; height:auto; margin:0 auto;"/>
+
+---
+
+
 ## 🚀 Instalação e Setup Inicial
 
 Siga este guia para configurar o seu ambiente de desenvolvimento do zero e colocar o Godzilla para rugir no seu navegador.
