@@ -14,5 +14,3 @@ hero:
       text: Projetos
       link: /projetos/dayli_meeting/resumidor-daily-scrum
 ---
-
-![image](public/Logo%20PromptStock.png)
