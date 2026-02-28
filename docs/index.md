@@ -8,9 +8,9 @@ hero:
   tagline: "\nPrompt categories"
   actions:
     - theme: brand
-      text: Developer
+      text: Developer Team - Example
       link: /developer/code_reviewer/agent-code-reviewer
     - theme: alt
-      text: Projetos
+      text: Projects Team - Example
       link: /projetos/dayli_meeting/resumidor-daily-scrum
 ---
