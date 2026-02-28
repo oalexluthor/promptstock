@@ -1,4 +1,4 @@
-#1 - What is PromptStock?
+# 1 - What is PromptStock?
 
 PromptStock functions as a **Static Site Generator (SSG)** specialized in AI. It acts as a bridge between domain experts (who write the logic in YAML format) and end users (who need a user-friendly interface to fill in variables and obtain immediate results).
 
@@ -84,8 +84,8 @@ python build_prompts.py
 **Step B: Starting VitePress**
 Now that the `.md` files exist, you can start the development server.
 
-``bash
-npm run dev
+```bash
+npm run docs:dev
 
 ```
 
@@ -116,6 +116,10 @@ This folder is the VitePress "factory". **Never edit files directly here.**
 
 * All the content of `docs/` (except the `.vitepress` folder) is deleted or overwritten whenever the `build_prompts.py` script is executed. The script transforms the entire `prompts/` structure into flat, optimized `.md` files that VitePress can render as web pages.
 
+
+* The `.vitepress/` folder contains the configuration files and theme components. Consult the VitePress documentation to make modifications if necessary.
+
+* The `index.md` file is the main page file for your documentation. IT IS NOT GENERATED AUTOMATICALLY. Edit it as you prefer, especially to create category menus. It is recommended to include a link to at least one category prompt to render the others within the sidebar.
 ---
 
 ## 📝 Visual Example of the Structure

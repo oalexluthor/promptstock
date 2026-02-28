@@ -81,7 +81,7 @@ python build_prompts.py
 Agora que os arquivos `.md` existem, você pode subir o servidor de desenvolvimento.
 
 ```bash
-npm run dev
+npm run docs:dev
 
 ```
 
@@ -111,6 +111,11 @@ Este é o único lugar onde os usuários e engenheiros de prompt devem trabalhar
 Esta pasta é a "fábrica" do VitePress. **Nunca edite arquivos diretamente aqui.**
 
 * Todo o conteúdo de `docs/` (exceto a pasta `.vitepress`) é deletado ou sobrescrito sempre que o script `build_prompts.py` é executado. O script transforma a estrutura completa de `prompts/` em arquivos `.md` planos e otimizados que o VitePress consegue renderizar como páginas web.
+
+* Dentro da pasta `.vitepress/` ficam os arquivos de configuração e dos componentes do tema. Leia a documentação do vitepress para fazer modificações caso necessário.
+
+* O arquivo `index.md` é o arquivo da página principal da sua documentação. ELE NÃO É GERADO AUTOMATICAMENTE. Edite ele da forma que preferir, principalmente para criar os menus das categorias.  É recomendado colocar o link de pelo menos um prompt de uma categoria para renderizar os outros dentro da sidebar.
+
 
 ---
 
